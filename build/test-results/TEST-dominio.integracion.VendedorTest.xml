@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dominio.integracion.VendedorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-21T05:40:40" hostname="DESKTOP-LFRLN4I" time="5.409">
+<testsuite name="dominio.integracion.VendedorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-21T09:12:54" hostname="DESKTOP-LFRLN4I" time="4.922">
   <properties/>
-  <testcase name="generarGarantiaTest" classname="dominio.integracion.VendedorTest" time="4.968"/>
-  <testcase name="productoYaTieneGarantiaTest" classname="dominio.integracion.VendedorTest" time="0.44"/>
+  <testcase name="generarGarantiaTest" classname="dominio.integracion.VendedorTest" time="4.722"/>
+  <testcase name="productoYaTieneGarantiaTest" classname="dominio.integracion.VendedorTest" time="0.199"/>
   <system-out><![CDATA[Hibernate: drop table GarantiaExtendida if exists
 Hibernate: drop table Producto if exists
 Hibernate: drop sequence if exists hibernate_sequence

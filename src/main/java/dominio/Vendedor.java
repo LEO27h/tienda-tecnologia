@@ -23,6 +23,9 @@ public class Vendedor implements  GarantiaExtendidaFactory{
     private static  final double CONDICIONVALOR = 500000;
     private static  final double MAYORDESCUENTO = 0.20;
     private static  final double MENOR_DESCUENTO = 0.10;
+    private static  final int DOSCIENTOS_DIAS_GARANTIA = 199;
+    private static  final int CIEN_DIAS_GARANTIA = 99;
+    private static  final int DOMINGO = 1;
 
     private RepositorioProducto repositorioProducto;
     private RepositorioGarantiaExtendida repositorioGarantia;
@@ -35,10 +38,16 @@ public class Vendedor implements  GarantiaExtendidaFactory{
 
     private Boolean validarPropiedadesProducto(double valor){
        Predicate<Double> validarValor = i -> i >= CONDICIONVALOR;
-       Boolean response = validarValor.test(valor);
        return validarValor.test(valor);
     }
 
+    private Boolean validarDomingoDoscientosDias(Calendar fechaDoscientosDias){
+    	int diaInt = fechaDoscientosDias.get(Calendar.DAY_OF_WEEK);
+        Predicate<Integer> validarValor = i -> i == DOMINGO;
+        return validarValor.test(diaInt);
+    }
+
+    
     private Boolean noEsProductoAsegurable(String codigo) {
         int cantidadVocales = 0;
         Predicate<Integer> validador =  i -> i == 3;
@@ -62,14 +71,17 @@ public class Vendedor implements  GarantiaExtendidaFactory{
             throw new GarantiaExtendidaException(EL_PRODUCTO_TIENE_GARANTIA);
         } else {
             Producto producto = repositorioProducto.obtenerPorCodigo(codigo);
-            if(validarPropiedadesProducto(producto.getPrecio())){
+            if(validarPropiedadesProducto(producto.getPrecio()))
+            {
                 double valorGarantia = producto.getPrecio() * MAYORDESCUENTO;
-                Date finalDate = sumarDiasAFecha(Calendar.getInstance().getTime() , 200);
+                Date finalDate = sumarDiasAFechaActual(DOSCIENTOS_DIAS_GARANTIA);
                 garantiaExtendida = crearGarantia(producto, Calendar.getInstance().getTime(),
                         finalDate , valorGarantia, "Jeiner");
-            } else  {
+            } 
+            else  
+            {
                 double valorGarantia = producto.getPrecio() * MENOR_DESCUENTO;
-                Date finalDate = sumarDiasAFecha(Calendar.getInstance().getTime() , 100);
+                Date finalDate = sumarDiasAFechaActual(CIEN_DIAS_GARANTIA);
                 garantiaExtendida = crearGarantia(producto, Calendar.getInstance().getTime(),
                         finalDate , valorGarantia, "Tiberio");
             }
@@ -78,10 +90,18 @@ public class Vendedor implements  GarantiaExtendidaFactory{
         }
     }
     
-    public Date sumarDiasAFecha(Date fecha, int dias){
+    public Date sumarDiasAFechaActual(int diasGarantia){
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fecha); 
-        calendar.add(Calendar.DAY_OF_YEAR, dias);  
+        calendar.setTime(calendar.getTime()); 
+        calendar.add(Calendar.DAY_OF_YEAR, diasGarantia);
+        if (diasGarantia == DOSCIENTOS_DIAS_GARANTIA) 
+        {
+            if(validarDomingoDoscientosDias(calendar))
+            {
+            	calendar.add(Calendar.DAY_OF_YEAR, 1);
+            }
+
+		}
         return calendar.getTime(); 
   }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dominio.unitaria.ProductoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-04-21T05:40:45" hostname="DESKTOP-LFRLN4I" time="0.001">
+<testsuite name="dominio.unitaria.ProductoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-04-21T09:12:59" hostname="DESKTOP-LFRLN4I" time="0.001">
   <properties/>
   <testcase name="crearProductoTest" classname="dominio.unitaria.ProductoTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

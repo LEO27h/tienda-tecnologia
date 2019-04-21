@@ -11,7 +11,7 @@ public class ProductoTest {
 
 	private static final String CODIGO = "S01H1AT51";
 	private static final String NOMBRE_PRODUCTO = "Impresora";
-	private static final int PRECIO = 450000;
+	private static final int PRECIO = 550000;
 
 	@Test
 	public void crearProductoTest() {

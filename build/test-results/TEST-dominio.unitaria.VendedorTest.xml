@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dominio.unitaria.VendedorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-21T05:40:45" hostname="DESKTOP-LFRLN4I" time="4.823">
+<testsuite name="dominio.unitaria.VendedorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-21T09:12:59" hostname="DESKTOP-LFRLN4I" time="0.387">
   <properties/>
-  <testcase name="productoNoTieneGarantiaTest" classname="dominio.unitaria.VendedorTest" time="4.822"/>
+  <testcase name="productoNoTieneGarantiaTest" classname="dominio.unitaria.VendedorTest" time="0.386"/>
   <testcase name="productoYaTieneGarantiaTest" classname="dominio.unitaria.VendedorTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
